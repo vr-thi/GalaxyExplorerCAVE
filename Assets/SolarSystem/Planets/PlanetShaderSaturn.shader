@@ -191,7 +191,7 @@ Shader "Planets/Saturn"
 										
 					min16float4 finalColor = min16float4(specAmount.xxx + lerp(baseColor, fresnelSideColor, fresnel), (min16float)_TransitionAlpha);
 
-					return ApplyVertClipAmount(finalColor, i.clipAmount);
+					return finalColor;//ApplyVertClipAmount(finalColor, i.clipAmount);
 				}
 
 			ENDCG

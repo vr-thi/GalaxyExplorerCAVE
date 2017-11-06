@@ -122,7 +122,7 @@ Shader "Planets/Sun"
 
 					min16float4 finalColor = min16float4(baseColor * saturate(cycles.y) + cycles.x * (min16float3)i.fresnel.xyz, (min16float)_TransitionAlpha);
 
-					return ApplyVertClipAmount(finalColor, i.clipAmount);
+					return finalColor;//ApplyVertClipAmount(finalColor, i.clipAmount);
 				}
 
 			ENDCG

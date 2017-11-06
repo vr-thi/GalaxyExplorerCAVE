@@ -10,9 +10,9 @@ Material:
   m_Shader: {fileID: 4800000, guid: fcf58a759169eee40b9265d1e9c6b847, type: 3}
   m_ShaderKeywords: ALBEDO_ON ALPHA_USAGE_OFF AMBIENTLIGHT_OFF CUBEMAP_OFF EMISSIVE_OFF
     FRESNEL_ON LIGHTMAP_OFF LIGHTPROBES_OFF LIGHT_OFF NEARCLIP_ON NORMAL_TEXTURE SHOWDEBUG_OFF
-    TINT_OFF VERTCOLOR_OFF _FOG_OFF
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+    TINT_OFF VERTCOLOR_OFF _EMISSION _FOG_OFF
+  m_LightmapFlags: 1
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -208,8 +208,14 @@ Material:
         name: _FOG
       second: 0
     - first:
+        name: _GlossMapScale
+      second: 1
+    - first:
         name: _Glossiness
       second: 0.5
+    - first:
+        name: _GlossyReflections
+      second: 1
     - first:
         name: _LightProbeAmount
       second: 1
@@ -238,8 +244,14 @@ Material:
         name: _ShowDebugValue
       second: 0
     - first:
+        name: _SmoothnessTextureChannel
+      second: 0
+    - first:
         name: _SpecForEmissiveArea
       second: 0
+    - first:
+        name: _SpecularHighlights
+      second: 1
     - first:
         name: _SrcBlend
       second: 1

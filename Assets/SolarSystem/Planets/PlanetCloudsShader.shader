@@ -109,7 +109,7 @@ Shader "Planets/Clouds"
 					clip(-1);
 				}
 
-				return ApplyVertClipAmount(finalColor, i.clipAmount);
+				return finalColor;//ApplyVertClipAmount(finalColor, i.clipAmount);
 			}
 			ENDCG
 		}

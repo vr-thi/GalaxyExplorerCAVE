@@ -78,7 +78,7 @@ Shader "Planets/Rings"
 				
 				min16float4 finalColor = min16float4(col.xyz * saturate(light.xxx + _Ambient), col.a * _TransitionAlpha);
 
-				return ApplyVertClipAmount(finalColor, i.clipAmount);
+				return finalColor;//ApplyVertClipAmount(finalColor, i.clipAmount);
 			}
 			ENDCG
 		}
