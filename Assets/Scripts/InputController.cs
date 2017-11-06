@@ -15,9 +15,16 @@ public class InputController : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (InputSynchronizer.GetKeyUp("flystick 1") && planetIndex < planets.Length - 1)
+		if ((InputSynchronizer.GetKeyUp("right") || InputSynchronizer.GetKeyUp("flystick 1")) && planetIndex < planets.Length - 1)
 	        viewController.SelectPlanet(planets[++planetIndex]);
-		if (InputSynchronizer.GetKeyUp("flystick 3") && planetIndex > 0)
+		if ((InputSynchronizer.GetKeyUp("left") || InputSynchronizer.GetKeyUp("flystick 3")) && planetIndex > 0)
 	        viewController.SelectPlanet(planets[--planetIndex]);
+		if (InputSynchronizer.GetKeyUp ("down") || InputSynchronizer.GetKeyUp ("flystick 2")) {
+			if (ViewController.logDistance > 0	)
+				viewController.ZoomIn (planets[planetIndex]);
+			else
+				viewController.ZoomOut (planets);
+		}
+		
     }
 }

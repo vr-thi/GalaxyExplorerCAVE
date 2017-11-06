@@ -8,6 +8,9 @@ public class ViewController : MonoBehaviour
     private GameObject origin;
     public GameObject galaxy;
     public static float speed = 1440;
+	public static float logDistance = 0;
+	public static float logSize = 0;
+	public static float sizeFac = 1;
 
     private GameObject activePlanet;
 	// Use this for initialization
@@ -22,17 +25,36 @@ public class ViewController : MonoBehaviour
         activePlanet = planet;
         float scale = 0.5f / planet.GetComponent<PlanetController>().radius;
         galaxy.transform.localScale = new Vector3(scale, scale, scale);
-    }
+	}
+
+	public void ZoomOut	(GameObject[] planets)
+	{
+		activePlanet = null;
+		logDistance = 10.0f;
+		logSize = 100000.0f;
+		sizeFac = 0.25f;
+		float scale = 1.0f / planets[planets.Length - 1].GetComponent<PlanetController>().getScaledSemiMajorAxis();
+		speed = 1440 * 365;
+		galaxy.transform.localScale = new Vector3(scale, scale, scale);
+	}
+
+	public void ZoomIn(GameObject planet)
+	{
+		speed = 1440;	
+		logDistance = 0;
+		logSize = 0;
+		sizeFac = 1;
+		SelectPlanet (planet);
+	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
-	    if (origin == null)
-	    {
-	        origin = InstantiateNode.FindOrigin();
-	    }
-	    else
-	    {
-	        origin.transform.position = new Vector3(activePlanet.transform.position.x, activePlanet.transform.position.y - 1.3f, activePlanet.transform.position.z);
-        }
+		if (origin == null) {
+			origin = InstantiateNode.FindOrigin ();
+		} else if (activePlanet != null) {
+			origin.transform.position = new Vector3 (activePlanet.transform.position.x, activePlanet.transform.position.y - 1.3f, activePlanet.transform.position.z);
+		} else {
+			origin.transform.position = new Vector3 (0, -1.3f, 0);
+		}
 	}
 }
