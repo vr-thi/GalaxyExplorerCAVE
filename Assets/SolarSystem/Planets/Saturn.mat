@@ -206,7 +206,7 @@ Material:
       second: 0.5
     - first:
         name: _InnerRingRadius
-      second: 0.0175
+      second: 0.7
     - first:
         name: _LightProbeAmount
       second: 1
@@ -227,7 +227,7 @@ Material:
       second: 1
     - first:
         name: _OuterRingRadius
-      second: 0.025
+      second: 1
     - first:
         name: _Parallax
       second: 0.02

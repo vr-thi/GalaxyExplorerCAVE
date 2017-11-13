@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e689658b33fb99345b0d6eae58e9163a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.034432296, g: 0.034432296, b: 0.034432296, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -304,6 +304,55 @@ Transform:
   m_Father: {fileID: 1001818391}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &42041406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 42041407}
+  - component: {fileID: 42041408}
+  m_Layer: 0
+  m_Name: MoonUpClose
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42041407
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42041406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 140450686}
+  m_Father: {fileID: 965610637}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &42041408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42041406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ae9661f340ef74faeaf791c1164dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  semiMajorAxis: 0.3844
+  eccentricity: 0.0549
+  orbitalPeriod: 0.07479452
+  radius: 0.001738
+  rotationPeriod: 27.322
+  rotateBackwards: 0
+  axisRotation: 6.68
+  orbitCenter: {fileID: 2003900225}
 --- !u!1 &123914032
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +400,88 @@ MonoBehaviour:
   orbitalPeriod: 1.8808476
   radius: 0.003397
   rotationPeriod: 1.0259567
+  rotateBackwards: 0
+  axisRotation: 25.19
+  orbitCenter: {fileID: 0}
+--- !u!1001 &140450685
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 42041407}
+    m_Modifications:
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.053732198
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.09747315
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.9204486
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.37468165
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418158, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: Sun
+      value: 
+      objectReference: {fileID: 203732483}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.6782147
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.6782141
+      objectReference: {fileID: 0}
+    - target: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.6782132
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8273654, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &140450686 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 444238, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+  m_PrefabInternal: {fileID: 140450685}
+--- !u!1 &140450687 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 175294, guid: 41e2825af3779ce458707b8e9b95fbf4, type: 2}
+  m_PrefabInternal: {fileID: 140450685}
+--- !u!135 &140450689
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140450687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.008565577
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &140571723
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +760,9 @@ MonoBehaviour:
   orbitalPeriod: 0
   radius: 0.696342
   rotationPeriod: 25.38
+  rotateBackwards: 0
+  axisRotation: 0
+  orbitCenter: {fileID: 0}
 --- !u!1 &212924980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1862,9 @@ MonoBehaviour:
   orbitalPeriod: 11.862615
   radius: 0.07149268
   rotationPeriod: 0.41354
+  rotateBackwards: 0
+  axisRotation: 3.12
+  orbitCenter: {fileID: 0}
 --- !u!1 &701180678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2645,7 @@ Transform:
   - {fileID: 1332599425}
   - {fileID: 1531323728}
   - {fileID: 1663501997}
+  - {fileID: 42041407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3436,6 +3574,9 @@ MonoBehaviour:
   orbitalPeriod: 29.447498
   radius: 0.06026714
   rotationPeriod: 0.44401
+  rotateBackwards: 0
+  axisRotation: 26.73
+  orbitCenter: {fileID: 0}
 --- !u!1 &1347207148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,6 +3882,9 @@ MonoBehaviour:
   orbitalPeriod: 0.2408467
   radius: 0.002439764
   rotationPeriod: 58.646225
+  rotateBackwards: 0
+  axisRotation: 0
+  orbitCenter: {fileID: 0}
 --- !u!1 &1474281754
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,6 +3962,9 @@ MonoBehaviour:
   orbitalPeriod: 84.016846
   radius: 0.025559
   rotationPeriod: 0.71833
+  rotateBackwards: 1
+  axisRotation: 97.86
+  orbitCenter: {fileID: 0}
 --- !u!1 &1570846772
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4263,9 @@ MonoBehaviour:
   orbitalPeriod: 0.61519724
   radius: 0.00605159
   rotationPeriod: 243.0187
+  rotateBackwards: 1
+  axisRotation: 177.3
+  orbitCenter: {fileID: 0}
 --- !u!1 &1696692692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4488,9 @@ MonoBehaviour:
   orbitalPeriod: 164.79132
   radius: 0.024764
   rotationPeriod: 0.67125
+  rotateBackwards: 0
+  axisRotation: 29.58
+  orbitCenter: {fileID: 0}
 --- !u!1 &1800685002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,6 +4735,9 @@ MonoBehaviour:
   orbitalPeriod: 247.92065
   radius: 0.001187
   rotationPeriod: 6.387
+  rotateBackwards: 1
+  axisRotation: 122.53
+  orbitCenter: {fileID: 0}
 --- !u!1 &1949188746
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,6 +5108,9 @@ MonoBehaviour:
   orbitalPeriod: 1
   radius: 0.00637815
   rotationPeriod: 1
+  rotateBackwards: 0
+  axisRotation: 23.45
+  orbitCenter: {fileID: 0}
 --- !u!1 &2006439351
 GameObject:
   m_ObjectHideFlags: 0

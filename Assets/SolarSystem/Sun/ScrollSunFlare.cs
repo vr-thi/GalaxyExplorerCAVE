@@ -3,6 +3,7 @@
 
 using UnityEngine;
 using System.Collections;
+using Cave;
 
 public class ScrollSunFlare : MonoBehaviour
 {
@@ -17,13 +18,17 @@ public class ScrollSunFlare : MonoBehaviour
 
     private Material mat;
     private Vector2 currentOffset;
+	private bool started = false;
 
-    private void OnEnable()
+    private void Update()
     {
-        var mr = gameObject.GetComponent<MeshRenderer>();
-        mr.material = mat = mr.material;
+		if (!started) {
+			var mr = gameObject.GetComponent<MeshRenderer> ();
+			mr.material = mat = mr.material;
 
-        StartCoroutine(Flares(new Vector2(0, 1)));
+			StartCoroutine (Flares (new Vector2 (0, 1)));
+			started = true;
+		}
     }
 
     private void OnDisable()
@@ -72,7 +77,7 @@ public class ScrollSunFlare : MonoBehaviour
                 float newScale = Mathf.Lerp(InitialScale, FinalScale, Mathf.SmoothStep(0, 1, i * 2f));
                 transform.localScale = Vector3.one * newScale;
 
-                t += Time.deltaTime;
+				t += TimeSynchronizer.deltaTime;
                 yield return null;
             }
 
@@ -86,7 +91,7 @@ public class ScrollSunFlare : MonoBehaviour
                 float newScale = Mathf.Lerp(FinalScale, InitialScale, Mathf.SmoothStep(0, 1, (i - 0.5f) * 2f));
                 transform.localScale = Vector3.one * newScale;
 
-                t += Time.deltaTime;
+				t += TimeSynchronizer.deltaTime;
                 yield return null;
             }
         }

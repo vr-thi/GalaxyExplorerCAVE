@@ -17,13 +17,25 @@ public class ViewController : MonoBehaviour
 	void Start ()
 	{
 	    origin = null;
-	    SelectPlanet(GameObject.Find("EarthUpClose"));
 	}
 
-    public void SelectPlanet(GameObject planet)
+	public void SelectPlanet(GameObject planet, GameObject[] planets)
     {
         activePlanet = planet;
-        float scale = 0.5f / planet.GetComponent<PlanetController>().radius;
+		float maxRadius = 0;
+		float minRadius = 0;
+		foreach (GameObject currentPlanet in planets) {
+			float radius = currentPlanet.GetComponent<PlanetController> ().radius;
+			if (maxRadius < radius)
+				maxRadius = radius;
+			if (minRadius == 0 || minRadius > radius)
+				minRadius = radius;
+		}
+
+		float radiusScale = (planet.GetComponent<PlanetController> ().radius - minRadius) / (maxRadius - minRadius);
+		radiusScale = Mathf.Pow (radiusScale, 1 / 10.0f);
+
+		float scale = 0.5f / planet.GetComponent<PlanetController>().radius * radiusScale;
         galaxy.transform.localScale = new Vector3(scale, scale, scale);
 	}
 
@@ -38,13 +50,13 @@ public class ViewController : MonoBehaviour
 		galaxy.transform.localScale = new Vector3(scale, scale, scale);
 	}
 
-	public void ZoomIn(GameObject planet)
+	public void ZoomIn(GameObject planet, GameObject[] planets)
 	{
 		speed = 1440;	
 		logDistance = 0;
 		logSize = 0;
 		sizeFac = 1;
-		SelectPlanet (planet);
+		SelectPlanet (planet, planets);
 	}
 	
 	// Update is called once per frame
