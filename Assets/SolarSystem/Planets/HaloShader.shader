@@ -81,7 +81,7 @@ Shader "Planets/HaloShader"
 				
 				min16float4 finalColor = min16float4(color.xyz, color.a * _TransitionAlpha);
 
-				return ApplyVertClipAmount(finalColor, i.clipAmount);
+				return finalColor;// ApplyVertClipAmount(finalColor, i.clipAmount);
 			}
 			ENDCG
 		}
