@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     public GameObject[] planets;
     public int planetIndex;
     public ViewController viewController;
+
 	void Start ()
 	{
 		viewController.SelectPlanet(planets[planetIndex], planets);
@@ -25,6 +26,7 @@ public class InputController : MonoBehaviour
 			else
 				viewController.ZoomOut (planets);
 		}
-		
+
+		viewController.ChangeSpeed(InputSynchronizer.GetAxis ("flystick horizontal") * TimeSynchronizer.deltaTime * 10 + 1);
     }
 }

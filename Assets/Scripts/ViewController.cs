@@ -58,7 +58,13 @@ public class ViewController : MonoBehaviour
 		sizeFac = 1;
 		SelectPlanet (planet, planets);
 	}
-	
+
+	public void ChangeSpeed(float fac)
+	{
+		speed *= fac;
+		speed = Mathf.Max(1, Mathf.Min(10000000, speed));
+	}
+
 	// Update is called once per frame
 	void LateUpdate () {
 		if (origin == null) {
