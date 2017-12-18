@@ -6,7 +6,7 @@ public class FlyStickInteraction : MonoBehaviour
 {
     private RaycastHit rHit;
     private LineRenderer lineRender;
-    private GameObject model, selectedPart;
+	private InteractionTrigger activeInteractionTrigger;
     private TrackerSettings trackerSettings;
 
     public Transform origin;
@@ -14,18 +14,6 @@ public class FlyStickInteraction : MonoBehaviour
     public float maxRayDist = 10f;
 
 
-    public GameObject SelectedPart
-    {
-        get
-        {
-            return selectedPart;
-        }
-
-        set
-        {
-            selectedPart = value;
-        }
-    }
     public TrackerSettings TrackerSettings
     {
         get
@@ -44,49 +32,38 @@ public class FlyStickInteraction : MonoBehaviour
     {
         lineRender = GetComponent<LineRenderer>();
         trackerSettings = GetComponent<TrackerSettings>();
+		activeInteractionTrigger = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (model == null)
-        {
-            model = GameObject.FindWithTag("InteractiveModel");
-        }
-        drawLaser();
+		SendRay();
+        DrawLaser();
     }
 
-    public void sendRay()
+    public void SendRay()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out rHit, maxRayDist))
-        {
-            selectedPart = rHit.collider.gameObject.transform.parent.gameObject;
-        }
-        else
-            selectedPart = null;
-    }
+		InteractionTrigger interactionTrigger = null;
+		if (Physics.Raycast(transform.position, transform.forward, out rHit, maxRayDist))
+			interactionTrigger = rHit.collider.gameObject.GetComponent<InteractionTrigger>();
 
-    public void sendRayForBlocks()
-    {
-		if (Physics.Raycast(transform.position, transform.forward, out rHit, maxRayDist)) 
-		{
-			selectedPart = rHit.collider.gameObject;
-        }
-        else
-			selectedPart = null;
+		if (interactionTrigger != activeInteractionTrigger) {
+			if (activeInteractionTrigger != null)
+				activeInteractionTrigger.OnFlyStickExit ();
+
+			if (interactionTrigger != null)
+				interactionTrigger.OnFlyStickEnter ();
+
+			activeInteractionTrigger = interactionTrigger;
+		}			
     }
     
-    private void drawLaser()
+    private void DrawLaser()
     {
         lineRender.SetPosition(0, origin.position);
         lineRender.SetPosition(1, dest.position);
     }
 
-    public void trigger()
-    {
-        model.GetComponent<interactionTrigger>().trigger();
-    }
-    
-
-}
+ }
 

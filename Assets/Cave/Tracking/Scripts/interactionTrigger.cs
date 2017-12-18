@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class interactionTrigger : MonoBehaviour {
+public class InteractionTrigger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +13,9 @@ public class interactionTrigger : MonoBehaviour {
 		
 	}
 
-	public virtual void trigger(){
-		print ("No function to execute! Make sure your function is call \"public override void trigger\"");
+	public virtual void OnFlyStickEnter(){
+	}
+
+	public virtual void OnFlyStickExit(){
 	}
 }

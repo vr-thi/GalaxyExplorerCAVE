@@ -13,6 +13,7 @@ public class PlanetController : MonoBehaviour
 	public bool rotateBackwards;
 	public float axisRotation;
 	public Transform orbitCenter;
+	public string name;
 
 	private float orbitAngle;
 	private float rotationAngle;

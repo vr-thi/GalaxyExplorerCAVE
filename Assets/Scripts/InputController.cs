@@ -13,7 +13,21 @@ public class InputController : MonoBehaviour
 	{
 		viewController.SelectPlanet(planets[planetIndex], planets);
 	}
-	
+
+	public void SelectPlanet(GameObject planetToSelect)
+	{
+		int newPlanetIndex = 0;
+		foreach (GameObject planet in planets)
+		{
+			if (planet == planetToSelect) {
+				planetIndex = newPlanetIndex;
+				viewController.ZoomIn (planet, planets);
+				break;
+			}
+			newPlanetIndex ++;
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (ViewController.logDistance == 0 && (InputSynchronizer.GetKeyUp("right") || InputSynchronizer.GetKeyUp("flystick 1")) && planetIndex < planets.Length - 1)
